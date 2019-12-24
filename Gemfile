@@ -16,6 +16,7 @@ gem 'puma', '~> 3.11'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
+gem 'dotenv-rails'
 
 # The readline library provides a pure Ruby implementation of the GNU readline C library, as well as the Readline extension that ships as part of the standard library.
 gem 'rb-readline', '~> 0.5.3'
@@ -27,7 +28,6 @@ gem 'rb-readline', '~> 0.5.3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors' # cors - allows us to configure the api to accept request from resources other then your domain
 

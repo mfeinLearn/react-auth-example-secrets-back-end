@@ -50,6 +50,10 @@ GEM
     byebug (11.0.1)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     ffi (1.11.3)
     globalid (0.4.2)
@@ -79,7 +83,8 @@ GEM
       mini_portile2 (~> 2.4.0)
     puma (3.12.2)
     rack (2.0.8)
-    rack-cors (1.0.3)
+    rack-cors (1.1.0)
+      rack (>= 2.0.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.4.1)
@@ -108,7 +113,7 @@ GEM
       thor (>= 0.19.0, < 2.0)
     rake (13.0.1)
     rb-fsevent (0.10.3)
-    rb-inotify (0.10.0)
+    rb-inotify (0.10.1)
       ffi (~> 1.0)
     rb-readline (0.5.5)
     ruby_dep (1.5.0)
@@ -140,6 +145,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
+  dotenv-rails
   jwt
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
