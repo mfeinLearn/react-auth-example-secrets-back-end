@@ -3,6 +3,7 @@ class SecretsController < ApplicationController
 
   # GET /secrets
   def index
+    byebug
     if logged_in?
       @secrets = current_user.secrets
       render json: @secrets, status: :ok
