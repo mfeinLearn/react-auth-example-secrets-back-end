@@ -1,30 +1,18 @@
 class ApplicationController < ActionController::API
-  def user_serializer(user)
-    {
-      name: user.name,
-      email: user.email,
-      id: user.id
-    }
-  end
 
+# an instance variable is an instance of this ApplicationController
+## which is an instance of one request in which it gets cleared out
+## after every request if   @current_user does not exist/nil   @current_user
+## will assign it to the result of the following -> User.find_by(id: session[:user_id])
+## and if we reference @current_user again with in the same request it will be stored with in
+## instance variable which saves us a database hit. 
   def current_user
-    begin
-      @current_user ||= User.find(decode_token_and_get_user_id)
-    rescue
-      return nil
-    end
+    @current_user ||= User.find_by(id: session[:user_id])
   end
 
   def logged_in?
     !!current_user
   end
 
-  def generate_token(payload)
-    JWT.encode(payload, ENV['JWT_TOKEN_SECRET'])
-  end
 
-  def decode_token_and_get_user_id
-    JWT.decode(request.headers["Authorization"],
-    ENV['JWT_TOKEN_SECRET'])[0]["id"]
-  end
 end

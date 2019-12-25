@@ -5,16 +5,16 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-# Now this will allow us to send request
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
-  allow do # who we are going to allow request from
-    origins '*' # example.com should be replaced with your domain
-    # we can us * or catch all which means catch every request of anytype with
-    ##.. any headers from anyone and we will process it
+  allow do
+    origins 'localhost:3000'
 
 
     resource '*',
       headers: :any, # what kind of resources and headers and what kind of request we are going to allow within this application
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      methods: [:get, :post, :put, :patch, :delete, :options, :head],
+      credentials: true # include sessions and cookies with our request as long they are coming from autherize domains
+      ## in this case - localhost:3000
+      ## If it is not an autherize domain we are not going to allow the request
   end
 end

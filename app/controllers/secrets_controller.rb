@@ -1,9 +1,11 @@
+# autherizing someone to see secrets 
+
 class SecretsController < ApplicationController
   # before_action :set_secret, only: [:show, :update, :destroy]
 
   # GET /secrets
   def index
-    byebug
+    #byebug
     if logged_in?
       @secrets = current_user.secrets
       render json: @secrets, status: :ok
